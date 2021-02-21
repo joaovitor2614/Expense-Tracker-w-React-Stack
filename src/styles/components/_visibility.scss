@@ -1,0 +1,41 @@
+.show-for-mobile {
+  @media (min-width: $desktop-breakpoint) {
+    display: none;
+  }
+}
+
+.show-for-desktop {
+  @media (max-width: $desktop-breakpoint - .01rem) {
+    display: none;
+  }
+}
+
+.list-default {
+  transform: translateY(-20px);
+  transition: .7s;
+  @media (min-width: $desktop-breakpoint) {
+      transform: translateY(-150px);
+  }
+}
+
+.list-up {
+  transform: translateY(0px);
+  transition: .5s;
+}
+
+
+.filters-default {
+  transform: translate(0px, 0px);
+  transition: .8s;
+}
+
+.filters-hide {
+  transform: translate(-999px, 0px);
+  overflow: hidden;
+  transition: .6s;
+}
+
+.income-graph {
+  background: black;
+  color: white;
+}
