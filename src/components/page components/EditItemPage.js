@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { removeItem, editItem } from '../../actions/items'
+import { startRemoveItem, startEditItem } from '../../actions/items'
 import { connect } from 'react-redux'
 import ItemForm from '../ItemForm'
 import ConfirmModal from '../ConfirmModal'
@@ -8,12 +8,12 @@ export const EditItemPage = (props) => {
     const [modalIsOpen, setIsOpen] = useState(false)
 
     function onSubmit(item) {
-        props.editItem(props.item.id, item)
-        props.history.push("/")
+        props.startEditItem(props.item.id, item)
+        props.history.push("/dashboard")
     }
     function onRemove() {
-        props.removeItem(props.item.id)
-        props.history.push("/")
+        props.startRemoveItem(props.item.id)
+        props.history.push("/dashboard")
     }
 
     function openModal() {
@@ -45,8 +45,8 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    removeItem: (item) => dispatch(removeItem(item)),
-    editItem: (id, updates) => dispatch(editItem(id, updates))
+    startRemoveItem: (item) => dispatch(startRemoveItem(item)),
+    startEditItem: (id, updates) => dispatch(startEditItem(id, updates))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditItemPage)

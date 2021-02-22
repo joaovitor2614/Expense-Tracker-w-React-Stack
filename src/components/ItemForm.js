@@ -72,7 +72,7 @@ export default class ItemForm extends React.Component {
 
         const isValid = await ItemSchema.validate(newItem).then((value) => {
             this.setState(() => ({ errors: '' }))
-            this.props.onSubmit(value)
+            this.props.onSubmit(newItem)
         }).catch((err) => {
             console.log(err)
             console.log(err.erros)

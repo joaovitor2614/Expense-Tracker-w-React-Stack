@@ -2,12 +2,22 @@ import moment from 'moment'
 const defaultFilterState = {
     text: '',
     sortBy: 'date',
+    typeSort: 'all',
     startDate: moment().startOf('month'),
     endDate: moment().endOf('month')
 }
 
 export default (state = defaultFilterState, action) => {
     switch (action.type) {
+        case 'SET_CLEAR_FILTERS':
+            return {
+                text: '',
+                sortBy: 'date',
+                typeSort: 'all',
+                startDate: moment().startOf('month'),
+                endDate: moment().endOf('month')
+            }
+
         case 'SET_TEXT_FILTER':
             return {
                 ...state,
@@ -33,6 +43,11 @@ export default (state = defaultFilterState, action) => {
             return {
                 ...state,
                 endDate: action.endDate
+            }
+        case 'SORT_BY_TYPE':
+            return {
+                ...state,
+                typeSort: action.typeSort
             }
         default:
             return state

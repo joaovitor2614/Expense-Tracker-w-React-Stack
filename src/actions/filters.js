@@ -1,4 +1,7 @@
 
+export const setClearFilters = () => ({
+    type: 'SET_CLEAR_FILTERS'
+})
 
 export const setTextFilter = (text = '') => ({
     type: 'SET_TEXT_FILTER',
@@ -22,3 +25,11 @@ export const setEndDate = (endDate) => ({
     type: 'SET_END_DATE',
     endDate
 })
+
+export const sortByType = (typeSort) => ({
+    type: 'SORT_BY_TYPE',
+    typeSort
+})
+
+
+

@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import {
     setTextFilter, sortByDate,
     sortByAmount, setEndDate,
-    setStartDate
+    setStartDate, sortByType
+
 } from '../actions/filters'
 import { DateRangePicker } from 'react-dates'
 
@@ -26,6 +27,11 @@ export class ListFilters extends React.Component {
             this.props.sortByAmount()
         }
     }
+
+    onTypeSort = (e) => {
+        const typeSort = e.target.value;
+        this.props.sortByType(typeSort)
+    }
     onDatesChange = ({ startDate, endDate }) => {
         this.props.setStartDate(startDate)
         this.props.setEndDate(endDate)
@@ -40,6 +46,25 @@ export class ListFilters extends React.Component {
                 <label>
                     Procurar por nome:
                <input type='text' value={this.props.filters.text} onChange={this.onTextFilter} />
+                </label>
+                <label>
+                    Procurar por tipo:
+                <div value={this.props.filters.typeSort} onChange={this.onTypeSort}>
+                        <label>
+                            Todos:
+                      <input type='radio' value='all' defaultChecked name='typeSort' />
+                        </label>
+                        <label>
+                            Renda:
+                      <input type='radio' value='income' name='typeSort' />
+                        </label>
+                        <label>
+                            Despesa:
+                      <input type='radio' value='expense' name='typeSort' />
+                        </label>
+
+                    </div>
+
                 </label>
                 <label>
                     Organizar por:
@@ -73,7 +98,9 @@ const mapDispatchToProps = (dispatch) => ({
     sortByDate: () => dispatch(sortByDate()),
     sortByAmount: () => dispatch(sortByAmount()),
     setStartDate: (startDate) => dispatch(setStartDate(startDate)),
-    setEndDate: (endDate) => dispatch(setEndDate(endDate))
+    setEndDate: (endDate) => dispatch(setEndDate(endDate)),
+    sortByType: (typeSort) => dispatch(sortByType(typeSort)),
+
 })
 
 const mapStateToProps = (state) => ({

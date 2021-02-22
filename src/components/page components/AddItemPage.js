@@ -1,15 +1,15 @@
 import React from 'react'
-import { addItem } from '../../actions/items'
+import { startAddItem } from '../../actions/items'
 import { connect } from 'react-redux'
 import ItemForm from '../ItemForm'
 
 
-export const AddItemPage = ({ addItem, history }) => {
+export const AddItemPage = ({ startAddItem, history }) => {
 
 
     function onSubmit(item) {
-        addItem(item)
-        history.push('/')
+        startAddItem(item)
+        history.push('/dashboard')
 
 
 
@@ -25,7 +25,7 @@ export const AddItemPage = ({ addItem, history }) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addItem: (item) => dispatch(addItem(item))
+    startAddItem: (item) => dispatch(startAddItem(item))
 })
 
 export default connect(undefined, mapDispatchToProps)(AddItemPage)

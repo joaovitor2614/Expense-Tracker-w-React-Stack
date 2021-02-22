@@ -25,7 +25,7 @@ export class Balance extends React.Component {
         {
             angle: this.state.totalExpense, label: 'Despesa',
             radius: 10, color: "#b11226"
-        }] : [{ angle: 100, label: 'Sem dados', color: 'grey' }]
+        }] : [{ angle: 100, color: 'grey' }]
 
 
 

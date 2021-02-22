@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { setClearFilters } from '../../actions/filters'
 import selectItems from '../../selectors/items'
 import Item from '../Item'
 import ListFilters from '../ListFilters'
@@ -20,7 +21,9 @@ export class ItemList extends React.Component {
     }
 
     onHideFilters = () => {
+        this.props.setClearFilters()
         if (this.state.filtersPosition === 'filters-default') {
+
             this.setState(() => ({ filtersPosition: 'filters-hide' }))
             this.setState(() => ({ listPosition: 'list-up' }))
         } else {
@@ -54,4 +57,8 @@ const mapStateToProps = (state) => ({
     items: selectItems(state.items, state.filters)
 })
 
-export default connect(mapStateToProps)(ItemList)
+const mapDispatchToProps = (dispatch) => ({
+    setClearFilters: () => dispatch(setClearFilters())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemList)
