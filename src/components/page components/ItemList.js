@@ -7,50 +7,80 @@ import ListFilters from '../ListFilters'
 
 export class ItemList extends React.Component {
     state = {
-        listPosition: 'list-default',
-        filtersPosition: 'filters-default'
+        shouldFilters: 'show-filters',
+        shouldList: 'down-list'
     }
 
-    onShowFilters = () => {
-        if (this.state.filtersPosition === 'filters-hide') {
-            this.setState(() => ({ filtersPosition: 'filters-default' }))
-            this.setState(() => ({ listPosition: 'list-default' }))
-        } else {
-            return
-        }
-    }
-
-    onHideFilters = () => {
+    hideFilters = () => {
+        this.setState(() => ({ shouldFilters: 'hide-filters' }))
+        this.setState(() => ({ shouldList: 'up-list' }))
         this.props.setClearFilters()
-        if (this.state.filtersPosition === 'filters-default') {
-
-            this.setState(() => ({ filtersPosition: 'filters-hide' }))
-            this.setState(() => ({ listPosition: 'list-up' }))
-        } else {
-            return
-        }
-        console.log(this.state.listPosition)
-        console.log(this.state.filtersPosition)
     }
+
+    showFilters = () => {
+        this.setState(() => ({ shouldFilters: 'show-filters' }))
+        this.setState(() => ({ shouldList: 'down-list' }))
+
+    }
+
+
+
+
+
+
 
     render() {
         return (
-            <div>
-                <h1>Lista dos items</h1>
-                <button onClick={this.onShowFilters}>Mostrar filtros</button>
-                <button onClick={this.onHideFilters}>Remover filtros</button>
-                <ListFilters className={this.state.filtersPosition} />
-                {this.props.items.length === 0 ? <p className={this.state.listPosition}>Sem itens</p> : (
-                    this.props.items.map((item) => {
-                        console.log(item)
-                        return <Item className={this.state.listPosition} key={item.id} item={item} />
-                    })
-                )}
+            <div className='bg-color'>
+                <div className='content-container'>
+                    <div className='button-gp'>
+                        <button onClick={this.showFilters} className='button button--show'>
+                            Mostrar filtros
+                        </button>
+                        <button onClick={this.hideFilters} className='button button--hide'>Remover filtros</button>
+
+                    </div>
+
+
+                </div>
+
+                <div className={this.state.shouldFilters}>
+                    <ListFilters />
+                </div>
+
+                <div className='content-container'>
+                    <div className={this.state.shouldList}>
+                        <div className='list__header'>
+                            <div className='show-for-desktop'>Título</div>
+                            <div className='show-for-desktop'>Quantia</div>
+                            <div className='show-for-mobile'>Items</div>
+                        </div>
+
+                    </div>
+
+
+                    <div className={this.state.shouldList}>
+                        <div className='z-index-low'>
+                            {this.props.items.length === 0 ? <p >Sem itens</p> : (
+                                this.props.items.map((item) => {
+
+                                    return <Item key={item.id} item={item} />
+                                })
+                            )}
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
 
             </div>
         )
     }
 }
+
 
 
 const mapStateToProps = (state) => ({

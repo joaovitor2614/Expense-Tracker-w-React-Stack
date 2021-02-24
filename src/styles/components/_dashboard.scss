@@ -1,0 +1,78 @@
+.dashboard {
+    align-items: center;
+    background-color: $dark-black;
+    height: 89vh;
+    display: flex;
+    justify-items: center;
+}
+
+.add-item {
+    background-color: $dark-black;
+    height: 89vh;
+}
+
+.balance-container {
+    background: $light-black;
+    border: 2px solid #151a21;
+    border-radius: 6px;
+    color: white;
+    
+    width: 30rem;
+    margin: 0 auto;
+    padding: $s-size;
+    max-width: 80rem;
+    @media (min-width: $desktop-breakpoint) {
+        width: 55rem;
+        padding: $s-size $m-size;
+       
+    }
+}
+
+.balance__total {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.balance__total-amount {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    margin-bottom: $s-size;
+    @media (min-width: $desktop-breakpoint) {
+        margin-bottom: $m-size;
+    }
+  
+}
+
+.balance__income {
+    margin: 0;
+    margin-right: $s-size;
+    @media (min-width: $desktop-breakpoint) {
+        margin-right: $m-size;
+    }
+}
+
+.balance__total {
+    margin: 0;
+    margin-left: $s-size;
+
+@media (min-width: $desktop-breakpoint) {
+    margin-right: $m-size;
+}
+}
+
+.balance__total--negative {
+    color: rgb(221, 17, 17);
+}
+
+.balance__total--positive {
+    color: rgb(66, 179, 66);
+}
+
+.balance__graph {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

@@ -5,6 +5,8 @@ import numeral from 'numeral'
 import { numeralConfig } from './Item'
 import { XYPlot, RadialChart } from 'react-vis';
 import '../../node_modules/react-vis/dist/style.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoins } from '@fortawesome/free-solid-svg-icons'
 
 
 numeral.locale('br')
@@ -12,7 +14,24 @@ numeral.locale('br')
 export class Balance extends React.Component {
     state = {
         totalIncome: this.props.totalData.incomeTotal,
-        totalExpense: this.props.totalData.expenseTotal
+        totalExpense: this.props.totalData.expenseTotal,
+        totalState: ''
+    }
+
+    onTotalStateColor = (total) => {
+        if (total === 0) {
+            this.setState(() => ({ totalState: '' }))
+        } else if (total > 0) {
+            this.setState(() => ({ totalState: 'balance__total--positive' }))
+        } else if (total < 0) {
+            this.setState(() => ({ totalState: 'balance__total--negative' }))
+        }
+        console.log(this.state.totalState)
+    }
+
+    componentDidMount() {
+        this.onTotalStateColor(this.props.totalData.totalBalance)
+
     }
     render() {
         const showAmountIncome = (this.state.totalIncome).toString()
@@ -30,21 +49,35 @@ export class Balance extends React.Component {
 
 
         return (
-            <div>
-                <h1>Balanço total: {numeral(this.props.totalData.totalBalance).format('$0,0.00')}</h1>
-                <p>Renda total: {numeral(this.props.totalData.incomeTotal).format('$0,0.00')}</p>
-                <p>Despesa total: {numeral(this.props.totalData.expenseTotal).format('$0,0.00')}</p>
-                <RadialChart
-                    data={myData}
-                    colorType="literal"
-                    animation={'gentle'}
-                    width={250}
-                    height={250}
-                    showLabels={true}
-                    labelsRadiusMultiplier={0.5}
-                    labelsAboveChildren={true}
+            <div className='balance-container'>
+                <div className='balance__total'>
+                    <div className='balance__total-amount'>
+                        <FontAwesomeIcon icon={faCoins} />
+                        <h1 className='balance__total'>
+                            Balanço total:<div className={`${this.state.totalState}`}>
+                                {numeral(this.props.totalData.totalBalance).format('$0,0.00')}</div>
+                        </h1>
+                    </div>
 
-                />
+                    <div className='balance__total-amount'>
+                        <p className='balance__income'>Renda total: {numeral(this.props.totalData.incomeTotal).format('$0,0.00')}</p>
+                        <p>Despesa total: {numeral(this.props.totalData.expenseTotal).format('$0,0.00')}</p>
+                    </div>
+                </div>
+                <div className='balance__graph'>
+                    <RadialChart
+                        data={myData}
+                        colorType="literal"
+                        animation={'gentle'}
+                        width={210}
+                        height={230}
+                        margin={{ left: 0, right: 0, top: 0, bottom: 0 }}
+                        showLabels={true}
+                        labelsRadiusMultiplier={0.5}
+                        labelsAboveChildren={true}
+                    />
+                </div>
+
             </div>
         );
     }

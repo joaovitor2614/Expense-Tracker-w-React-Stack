@@ -14,10 +14,17 @@
   "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.34.tgz"
   "version" "0.2.34"
 
-"@fortawesome/fontawesome-svg-core@^1.2.34":
+"@fortawesome/fontawesome-svg-core@^1.2.32", "@fortawesome/fontawesome-svg-core@^1.2.34":
   "integrity" "sha512-0KNN0nc5eIzaJxlv43QcDmTkDY1CqeN6J7OCGSs+fwGPdtv0yOQqRjieopBCmw+yd7uD3N2HeNL3Zm5isDleLg=="
   "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.34.tgz"
   "version" "1.2.34"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.34"
+
+"@fortawesome/free-brands-svg-icons@^5.15.2":
+  "integrity" "sha512-YPlVjE1cEO+OJ9I9ay3TQ3I88+XkxMTYwnnddqAboxLhPNGncsHV0DjWOVLCyuAY66yPfyndWwVn4v7vuqsO1g=="
+  "resolved" "https://registry.npmjs.org/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.15.2.tgz"
+  "version" "5.15.2"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.34"
 
@@ -118,7 +125,7 @@
     "json-schema-traverse" "^0.3.0"
     "json-stable-stringify" "^1.0.1"
 
-"ajv@^6.12.3":
+"ajv@^6.12.3", "ajv@>=5.0.0":
   "integrity" "sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g=="
   "resolved" "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz"
   "version" "6.12.6"
@@ -382,7 +389,7 @@
     "esutils" "^2.0.2"
     "js-tokens" "^3.0.0"
 
-"babel-core@^6.0.0", "babel-core@^6.24.1", "babel-core@6.25.0":
+"babel-core@^6.0.0", "babel-core@^6.24.1", "babel-core@6 || 7 || ^7.0.0-alpha || ^7.0.0-beta || ^7.0.0-rc", "babel-core@6.25.0":
   "resolved" "https://registry.yarnpkg.com/babel-core/-/babel-core-6.25.0.tgz"
   "version" "6.25.0"
   dependencies:
@@ -3866,7 +3873,7 @@
   dependencies:
     "minimist" "0.0.8"
 
-"moment@>=1.6.0", "moment@2.18.1", "moment@2.x.x":
+"moment@^2.18.1", "moment@>=1.6.0", "moment@2.18.1", "moment@2.x.x":
   "resolved" "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz"
   "version" "2.18.1"
 
@@ -3986,7 +3993,7 @@
     "tar" "^2.2.1"
     "tar-pack" "^3.4.0"
 
-"node-sass@^5.0.0":
+"node-sass@^4.0.0", "node-sass@^5.0.0":
   "integrity" "sha512-opNgmlu83ZCF792U281Ry7tak9IbVC+AKnXGovcQ8LG8wFaJv6cLnRlc6DIHlmNxWEexB5bZxi9SZ9JyUuOYjw=="
   "resolved" "https://registry.yarnpkg.com/node-sass/-/node-sass-5.0.0.tgz"
   "version" "5.0.0"
@@ -4842,7 +4849,7 @@
     "minimist" "^1.2.0"
     "strip-json-comments" "~2.0.1"
 
-"react-addons-shallow-compare@15.6.0":
+"react-addons-shallow-compare@>=0.14", "react-addons-shallow-compare@15.6.0":
   "resolved" "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.6.0.tgz"
   "version" "15.6.0"
   dependencies:
@@ -4864,7 +4871,7 @@
     "react-moment-proptypes" "^1.4.0"
     "react-portal" "^3.1.0"
 
-"react-dom@17.0.1":
+"react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17", "react-dom@>=0.14", "react-dom@17.0.1":
   "integrity" "sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.1.tgz"
   "version" "17.0.1"
@@ -4976,7 +4983,7 @@
     "prop-types" "^15.5.8"
     "react-motion" "^0.5.2"
 
-"react@17.0.1":
+"react@^0.14 || ^15.0.0 || ^16.0.0-alpha", "react@^0.14.0 || ^15.0.0 || ^16 || ^17", "react@^0.14.0 || ^15.0.0-0 || ^16.0.0-0", "react@^0.14.9 || ^15.3.0 || ^16.0.0", "react@^15", "react@^15.6.1", "react@>=0.14", "react@>=16.x", "react@15.3.0 - 16.x", "react@17.0.1":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"
@@ -5062,7 +5069,7 @@
   "resolved" "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz"
   "version" "2.2.0"
 
-"redux@3.7.2":
+"redux@^2.0.0 || ^3.0.0", "redux@3.7.2":
   "resolved" "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz"
   "version" "3.7.2"
   dependencies:
@@ -6136,7 +6143,7 @@
     "source-list-map" "^2.0.0"
     "source-map" "~0.5.3"
 
-"webpack@3.1.0":
+"webpack@^1.0.0 || ^2.0.0 || ^3.0.0", "webpack@^1.9 || ^2 || ^2.1.0-beta || ^2.2.0-rc || ^3.0.0", "webpack@^2.0.0 || >= 3.0.0-rc.0 || ^3.0.0", "webpack@^2.2.0 || ^3.0.0", "webpack@^3.1.0", "webpack@2 || 3", "webpack@3.1.0":
   "resolved" "https://registry.yarnpkg.com/webpack/-/webpack-3.1.0.tgz"
   "version" "3.1.0"
   dependencies:

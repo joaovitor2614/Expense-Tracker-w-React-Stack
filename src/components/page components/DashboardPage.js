@@ -4,7 +4,7 @@ import Balance from '../Balance'
 
 const DashboardPage = () => {
   return (
-    <div>
+    <div className='dashboard'>
       <Balance />
     </div>
   )

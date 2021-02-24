@@ -1,4 +1,5 @@
 .loader {
+  background-color: white;
   align-items: center;
   display: flex;
   height: 100vh;
@@ -7,6 +8,17 @@
 }
 
 .loader__image {
-  height: 24rem;
-  width: 24rem;
+  height: 17rem;
+  width: 17rem;
+  @media (min-width: $desktop-breakpoint) {
+    height: 24rem;
+    width: 24rem;
+  }
+}
+
+.loader__group {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }

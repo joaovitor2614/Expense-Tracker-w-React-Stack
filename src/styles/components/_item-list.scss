@@ -1,0 +1,81 @@
+.filters__header {
+    align-items: center;
+    background: $dark-grey;
+    border: 1px solid $input-border-light-black;
+    color: white;
+    display: flex;
+    justify-content: center;
+   
+    padding: 0.6rem 0;
+   
+}
+
+.filters__group {
+    align-items: center;
+    background-color: $light-black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 $s-size;
+    @media (min-width: $desktop-breakpoint) {
+        flex-direction: row;
+    justify-content: space-between;
+    }
+}
+
+.list__header {
+    @extend .filters__header;
+    justify-content: space-between;
+    margin: 0;
+    margin-top: $s-size;
+    
+    padding: $s-size;
+    @media (min-width: $desktop-breakpoint) {
+        margin-top: $m-size;
+        padding: $s-size $m-size;
+    }
+
+}
+
+.list__item {
+    text-decoration: none;
+    background-color: $light-black;
+    display: flex;
+    flex-direction: column;
+  
+    padding: $s-size;
+    border-bottom: 1px solid $input-border-light-black;
+    @media (min-width: $desktop-breakpoint) {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: $m-size
+    }
+
+  
+    
+}
+
+.list__title {
+  text-decoration: none;
+  color: white;
+  font-size: 2.5rem;
+  word-break: break-all;
+}
+
+.list__sub-title-group {
+    
+   justify-content: end;
+   
+}
+
+.list__sub-title-group > p {
+    text-decoration: none;
+}
+
+.list__sub-title {
+    word-break: break-all;
+    color: white;
+;
+}
+

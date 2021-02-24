@@ -1,14 +1,24 @@
+
 .button {
-  background: $blue;
   border: none;
-  color: white;
-  display: inline-block;
-  font-size: $font-size-large;
+  border-radius: 4px;
+  font-size: $font-size-small;
   font-weight: 300;
-  line-height: 1;
   padding: $s-size;
-  text-decoration: none;
+  @media (min-width: $desktop-breakpoint) {
+    font-size: $font-size-large;
+  }
 }
+
+.button--logout {
+  background: none;
+  color: #fff;
+  &:hover {
+    color: gray;
+  }
+}
+
+
 
 .button--link {
   background: none;
@@ -16,4 +26,66 @@
 
 .button--secondary {
   background: #888;
+}
+
+.button--brand {
+  transition: .3s ease;
+ 
+  &:hover {
+    box-shadow: 0px 5px 8px #888888;
+  }
+}
+
+.button--google {
+  
+  background: #1a73e8;
+  color: #ffffff;
+  margin: 0;
+  margin-right: $s-size;
+  @media (min-width: $desktop-breakpoint) {
+    margin-right: $m-size;
+
+  }
+ 
+}
+
+.button--app {
+  background: #1a73e8;
+  color: #ffffff;
+}
+
+
+.button--show{
+  background: none;
+  color: rgb(109, 196, 109);
+  border:  2px solid rgb(52, 143, 52);
+  font-size: $font-size-small;
+  margin: 0;
+  margin-right: $m-size;
+}
+
+.button--hide {
+  background: none;
+  color: rgb(161, 88, 88);
+  border: 2px solid rgb(148, 60, 60);
+  font-size: $font-size-small;
+}
+
+.button-gp {
+  margin: $l-size 0;
+}
+
+.button--remove {
+  &:hover {
+    background: #888;
+  }
+ 
+}
+
+
+
+.button__gp {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }

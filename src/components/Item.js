@@ -34,10 +34,20 @@ numeral.locale('br')
 const Item = ({ item }) => {
 
     return (
-        <Link to={`/edit/${item.id}`}>
-            <h1>{item.title}</h1>
-            <p>{numeral(item.amount).format('$0,0.00')} - {moment(item.createdAt).format('ll')}</p>
+
+        <Link className='list__item' to={`/edit/${item.id}`}>
+
+            <p className='list__title'>{item.title}</p>
+            <div className='list__sub-title-group'>
+                <p className='list__sub-title'>{numeral(item.amount).format('$0,0.00')}</p>
+                <p className='list__sub-title'>{moment(item.createdAt).format('ll')}</p>
+
+            </div>
+
+
         </Link>
+
+
     )
 }
 

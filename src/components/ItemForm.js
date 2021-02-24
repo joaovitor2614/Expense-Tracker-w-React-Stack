@@ -13,7 +13,7 @@ export default class ItemForm extends React.Component {
         this.state = {
             type: props.item ? props.item.type : '',
             title: props.item ? props.item.title : '',
-            amount: props.item ? (props.item.amount * 100).toString() : '',
+            amount: props.item ? (props.item.amount).toString() : '',
             createdAt: props.item ? moment(props.item.createdAt) : moment(),
             note: props.item ? props.item.note : '',
             focused: null,
@@ -85,52 +85,72 @@ export default class ItemForm extends React.Component {
     render() {
 
         return (
-            <div>
-                <form onSubmit={this.onSubmit}>
+            <div className='form-center'>
+
+                <form className='form' onSubmit={this.onSubmit}>
                     {this.state.error && <p className='form-error'>{this.state.error}</p>}
-                    <label>
-                        Tipo:
-                       <div onChange={this.onTypeChange}>
-                            <label>
-                                Nenhum
-                            <input type='radio' value='none' defaultChecked name='type' />
-                            </label>
-                            <label>
-                                Renda
-                            <input type='radio' value='income' name='type' />
-                            </label>
-                            <label>
-                                Despesa
-                            <input type='radio' value='expense' name='type' />
-                            </label>
+                    <div className='form-group form-group--first'>
+                        <label className='radio-group form-group__m-r'>
+                            Tipo:
+                            <div onChange={this.onTypeChange}>
+                                <label className='text-margin-r-l'>
+                                    Nenhum
+                                    <input type='radio' value='none' defaultChecked name='type' />
+                                </label>
+                                <label className='text-margin-r'>
+                                    Renda
+                                    <input type='radio' value='income' name='type' />
+                                </label>
+                                <label >
+                                    Despesa
+                                    <input type='radio' value='expense' name='type' />
+                                </label>
 
 
-                        </div>
-                    </label>
-                    <label>
-                        Título:
-                       <input type='text' value={this.state.title} onChange={this.onTitleChange}
-                            placeholder="Insira título..." />
-                    </label>
-                    <label>
-                        Quantia:
-                       <input value={this.state.amount} onChange={this.onAmountChange}
-                            placeholder="Insira quantia..." />
-                    </label>
-                    <SingleDatePicker
-                        date={this.state.createdAt}
-                        focused={this.state.focused}
-                        onDateChange={this.onDateChange}
-                        onFocusChange={this.onFocusChange}
-                        numberOfMonths={1}
-                        isOutsideRange={() => false}
-                    />
-                    <textarea
-                        value={this.state.note}
-                        onChange={this.onNoteChange}
-                        placeholder="Insira nota(opcional)..."
-                    />
-                    <button>Salvar</button>
+                            </div>
+                        </label>
+                        <label>
+                            Título:
+                            <input className='input' type='text' value={this.state.title} onChange={this.onTitleChange}
+                                placeholder="Insira título..." />
+                        </label>
+                    </div>
+
+                    <div className='form-group'>
+                        <label className='form-group__m-r'>
+                            Quantia:
+                            <input value={this.state.amount} className='input'
+                                onChange={this.onAmountChange}
+                                placeholder="Insira quantia..." />
+                        </label>
+                        <SingleDatePicker
+                            date={this.state.createdAt}
+                            focused={this.state.focused}
+                            onDateChange={this.onDateChange}
+                            onFocusChange={this.onFocusChange}
+                            numberOfMonths={1}
+                            isOutsideRange={() => false}
+                            withPortal={true}
+
+                        />
+
+                    </div>
+
+                    <div className='form-group'>
+                        <label className='form-group__m-r'>
+                            Nota:
+                            <textarea
+                                className='input input--big'
+                                value={this.state.note}
+                                onChange={this.onNoteChange}
+                                placeholder="Insira nota(opcional)..."
+                            />
+                        </label>
+
+                        <button className='button button--app'>Salvar</button>
+
+                    </div>
+
 
 
                 </form>

@@ -1,0 +1,36 @@
+.box-container {
+    align-items: center;
+    background-image: url('/images/login-bg.jpg');
+    background-size: cover;
+ 
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.box-container__content {
+    align-items: center;
+    background: fade-out($white, .15);
+    border-radius: 5%;
+    width: 25rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $s-size $m-size;
+    @media (min-width: $desktop-breakpoint) {
+        width: 35rem;
+        height: 25rem;
+        padding: $m-size $l-size;
+        
+    }
+
+    
+}
+
+.box-container__title-box {
+    margin: 0;
+    margin-bottom: $m-size;
+}
+

@@ -8,6 +8,7 @@ html {
 
 body {
   color: $dark-grey;
+  background-color: $dark-black;
   font-family: Helvetica, Arial, sans-serif;
   font-size: $m-size;
   line-height: 1.6;
@@ -23,4 +24,10 @@ button:disabled {
 
 .is-active {
   font-weight: bold;
+  
+}
+
+.bg-color {
+  background: $dark-black;
+  height: 89vh;
 }

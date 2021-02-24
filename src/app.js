@@ -6,11 +6,14 @@ import AppRouter, { history } from './routers/AppRouter';
 import LoadingPage from './components/LoadingPage'
 import { startSetItems } from './actions/items'
 import { login, logout } from './actions/auth'
-import 'normalize.css/normalize.css';
-import './styles/styles.scss';
+
 import 'react-dates/lib/css/_datepicker.css';
 import '../node_modules/react-vis/dist/style.css';
 import { firebase } from './firebase/firebase'
+import 'normalize.css/normalize.css';
+
+import './styles/styles.scss';
+
 
 const store = configureStore();
 const jsx = (

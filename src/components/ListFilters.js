@@ -42,49 +42,65 @@ export class ListFilters extends React.Component {
     render() {
 
         return (
-            <div>
-                <label>
-                    Procurar por nome:
-               <input type='text' value={this.props.filters.text} onChange={this.onTextFilter} />
-                </label>
-                <label>
-                    Procurar por tipo:
-                <div value={this.props.filters.typeSort} onChange={this.onTypeSort}>
+            <div className='content-container'>
+                <div className='filters__header'>Procurar por</div>
+                <div className='filters__group'>
+                    <label>
+                        Procurar por nome:
+                    <input className='input' type='text' value={this.props.filters.text} onChange={this.onTextFilter} />
+                    </label>
+                    <div className='radio-group'>
                         <label>
-                            Todos:
-                      <input type='radio' value='all' defaultChecked name='typeSort' />
-                        </label>
-                        <label>
-                            Renda:
-                      <input type='radio' value='income' name='typeSort' />
-                        </label>
-                        <label>
-                            Despesa:
-                      <input type='radio' value='expense' name='typeSort' />
+                            Procurar por tipo:
+                            <div value={this.props.filters.typeSort} onChange={this.onTypeSort}>
+                                <label>
+                                    Todos:
+                                <input type='radio' value='all' defaultChecked name='typeSort' />
+                                </label>
+                                <label>
+                                    Renda:
+                                <input type='radio' value='income' name='typeSort' />
+                                </label>
+                                <label>
+                                    Despesa:
+                                <input type='radio' value='expense' name='typeSort' />
+                                </label>
+
+                            </div>
+
                         </label>
 
                     </div>
 
-                </label>
-                <label>
-                    Organizar por:
-                    <select value={this.props.filters.sortBy} onChange={this.onSortBy}>
-                        <option value='date'>Data</option>
-                        <option value='amount'>Quantidade</option>
-                    </select>
-                </label>
-                <label>
-                    Procurar por período de data:
-                <DateRangePicker
-                        startDate={this.props.filters.startDate}
-                        endDate={this.props.filters.endDate}
-                        focusedInput={this.state.focusedInput}
-                        onDatesChange={this.onDatesChange}
-                        onFocusChange={this.onFocusInput}
-                        showClearDates={true}
 
-                    />
-                </label>
+                </div>
+
+                <div className='filters__header'>Organizar por</div>
+                <div className='filters__group'>
+                    <label>
+                        Organizar por:
+                    <select className='input' value={this.props.filters.sortBy} onChange={this.onSortBy}>
+                            <option value='date'>Data</option>
+                            <option value='amount'>Quantidade</option>
+                        </select>
+                    </label>
+                    <label>
+                        Organizar por período de data:
+                <DateRangePicker
+                            startDate={this.props.filters.startDate}
+                            endDate={this.props.filters.endDate}
+                            focusedInput={this.state.focusedInput}
+                            onDatesChange={this.onDatesChange}
+                            onFocusChange={this.onFocusInput}
+                            isOutsideRange={() => false}
+                            showClearDates={true}
+                            withPortal={true}
+
+                        />
+                    </label>
+
+                </div>
+
             </div>
         )
     }

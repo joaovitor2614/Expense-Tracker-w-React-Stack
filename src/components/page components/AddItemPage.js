@@ -17,8 +17,15 @@ export const AddItemPage = ({ startAddItem, history }) => {
 
 
     return (
-        <div>
-            <h1>Adicionar item</h1>
+        <div className='add-item'>
+            <div className='page-header'>
+                <div className='content-container'>
+                    <h1>Adicionar item</h1>
+                </div>
+
+            </div>
+
+
             <ItemForm onSubmit={onSubmit} />
         </div>
     )

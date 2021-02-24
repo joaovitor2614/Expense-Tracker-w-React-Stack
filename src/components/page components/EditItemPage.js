@@ -26,9 +26,21 @@ export const EditItemPage = (props) => {
 
     return (
         <div>
-            <h1>Editar item</h1>
+            <div className='page-header'>
+                <div className='content-container'>
+                    <div className='edit-header'>
+                        <h1>Editar item</h1>
+                        <div>
+                            <button className='button button--remove' onClick={openModal}>Remover</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
             <ItemForm onSubmit={onSubmit} item={props.item} />
-            <button onClick={openModal}>Remover</button>
+
             <ConfirmModal
                 modalIsOpen={modalIsOpen}
                 closeModal={closeModal}

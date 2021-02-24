@@ -4,6 +4,33 @@
   font-size: $font-size-large;
   font-weight: 300;
   padding: $s-size;
+  
+}
+
+.input {
+  border: 1px solid $input-border-light-black;
+  color: white;
+  background: $input-light-black;
+  height: 35px;
+  font-weight: 300;
+  width: 115px;
+  font-size: 1.4rem;
+  padding: $s-size;
+  @media (min-width: $desktop-breakpoint) {
+    height: 40px;
+    width: 160px;
+    font-size: $font-size-large;
+  }
+}
+
+.input--big {
+  height: 40px;
+  width: 125px;
+ 
+  @media (min-width: $desktop-breakpoint) {
+    height: 75px;
+    width: 230px;
+  }
 }
 
 .select {
@@ -14,3 +41,4 @@
   @extend .text-input;
   height: 10rem;
 }
+
