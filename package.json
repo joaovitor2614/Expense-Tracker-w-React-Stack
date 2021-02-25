@@ -1,6 +1,10 @@
 {
   "name": "boilerplate-react-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "15.0.1",
+    "yarn": "1.22.10"
+  },
   "main": "index.js",
   "author": "Joao Vitor",
   "license": "MIT",
