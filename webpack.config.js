@@ -9,6 +9,24 @@ if (process.env.NODE_ENV === 'test') {
   require('dotenv').config({ path: '.env.test' });
 } else if (process.env.NODE_ENV === 'development') {
   require('dotenv').config({ path: '.env.development' });
+} else if (process.env.NODE_ENV === 'production') {
+  module.exports.devtool = '#source-map'
+  // http://vue-loader.vuejs.org/en/workflow/production.html
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        ecma: 8
+      }
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    })
+  ])
 }
 
 module.exports = (env) => {
@@ -47,7 +65,7 @@ module.exports = (env) => {
       }]
     },
     plugins: [
-      new UglifyJSPlugin(),
+
       CSSExtract,
       new webpack.DefinePlugin({
         'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
@@ -56,7 +74,8 @@ module.exports = (env) => {
         'process.env.FIREBASE_PROJECT_ID': JSON.stringify(process.env.FIREBASE_PROJECT_ID),
         'process.env.FIREBASE_STORAGE_BUCKET': JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
         'process.env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID)
-      })
+      }),
+      new UglifyJSPlugin()
     ],
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
