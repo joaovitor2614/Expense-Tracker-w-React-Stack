@@ -2,7 +2,7 @@
 import React from 'react'
 import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
-import ItemSchema from '../validation/items'
+
 
 
 
@@ -57,7 +57,7 @@ export default class ItemForm extends React.Component {
         this.setState(() => ({ focused }))
     }
 
-    async onSubmit(e) {
+    onSubmit(e) {
         e.preventDefault()
 
         console.log(this.state.title)
@@ -70,14 +70,8 @@ export default class ItemForm extends React.Component {
         }
         console.log(newItem)
 
-        const isValid = await ItemSchema.validate(newItem).then((value) => {
-            this.setState(() => ({ errors: '' }))
-            this.props.onSubmit(newItem)
-        }).catch((err) => {
-            console.log(err)
-            console.log(err.erros)
-            this.setState(() => ({ error: err.errors }))
-        })
+        this.props.onSubmit(newItem)
+
 
 
     }
