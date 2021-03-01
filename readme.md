@@ -1,7 +1,5 @@
-# Git Commands
+main features of the project:
+- Individual data storage for each user with database and authentication
+- Managing data flow by redux
+- Pie Graph visualization with react-vis
 
-git init - Create a new git repo
-git status - View the changes to your project code
-git add - Add files to staging area
-git commit - Creates a new commit with files from staging area
-git log - View recent commits
