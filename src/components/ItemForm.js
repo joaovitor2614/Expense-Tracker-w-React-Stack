@@ -68,12 +68,13 @@ export default class ItemForm extends React.Component {
             createdAt: this.state.createdAt.valueOf(),
             note: this.state.note,
         }
-        console.log(newItem)
+        if (!this.state.type || !this.state.title || !this.state.amount) {
+            this.setState(() => ({ error: 'Preencha os campos não marcados como opcionais' }))
+        } else {
+            this.setState(() => ({ error: '' }))
 
-        this.props.onSubmit(newItem)
-
-
-
+            this.props.onSubmit(newItem)
+        }
     }
 
     render() {
